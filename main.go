@@ -96,11 +96,11 @@ func main() {
 				log.Fatalf("Erreur lors de l'ajout de l'attribut 'la': %v", err)
 			}
 
-			// Créer un dataset pour les valeurs V (tableau 2D)
+			// Créer un dataset pour les valeurs V
 			if len(entry.V) > 0 {
 				// Déterminer les dimensions du dataset
 				rows := len(entry.V)
-				cols := 2 // Vous avez mentionné que vous voulez un tableau de 2 colonnes
+				cols := len(entry.V[0]) // Déterminer dynamiquement le nombre de colonnes
 
 				// Créer un espace pour le dataset
 				dims := []uint{uint(rows), uint(cols)}
@@ -121,9 +121,7 @@ func main() {
 				flatData := make([]float64, rows*cols)
 				for i, row := range entry.V {
 					for j, val := range row {
-						if j < cols {
-							flatData[i*cols+j] = val
-						}
+						flatData[i*cols+j] = val
 					}
 				}
 
