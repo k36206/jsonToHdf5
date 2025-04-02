@@ -1,0 +1,4 @@
+# gonum.org/v1/hdf5 v0.0.0-20210714002203-8c5d23bc6946
+## explicit; go 1.13
+gonum.org/v1/hdf5
+gonum.org/v1/hdf5/cmem
